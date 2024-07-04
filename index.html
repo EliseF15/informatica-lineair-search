@@ -20,7 +20,7 @@
      margin-bottom: 20px;
    }
    button, .link-button {
-     background-color: gold;
+     background-color: rgb(255, 0, 0);
      color: black;
      border: none;
      padding: 10px 20px;
@@ -31,7 +31,7 @@
      display: inline-block;
    }
    button:hover, .link-button:hover {
-     background-color: darkorange;
+     background-color: rgb(253, 62, 62);
    }
    input[type="number"] {
      padding: 10px;
@@ -47,7 +47,8 @@
 </style>
 </head>
 <body>
-<h1>Array met 100 Willekeurige Nummers onder de 100</h1>
+<h1>Array met Willekeurige Nummers onder de 100</h1>
+<input type="number" id="amountNumbers" placeholder="Aantal" min="1" max="1000">
 <button id="generateButton">Genereer Nummers</button>
 <button id="sortButton">Sorteer Nummers</button>
 <input type="number" id="searchNumber" placeholder="Zoek een nummer">
@@ -55,16 +56,16 @@
 <div id="result"></div>
 <div id="searchResult"></div>
 <div id="searchSteps"></div>
-<a href="index.html" class="link-button">Main Page</a>
+<a href="index2.html" class="link-button">Main Page</a>
 <script>
    // Functie om een willekeurig getal onder de 100 te genereren
    function getRandomNumber() {
      return Math.floor(Math.random() * 100);
    }
-   // Functie om een array met 100 willekeurige nummers te maken
-   function generateRandomNumbers() {
+   // Functie om een array met willekeurige nummers te maken
+   function generateRandomNumbers(amount) {
      let randomNumbers = [];
-     for (let i = 0; i < 100; i++) {
+     for (let i = 0; i < amount; i++) {
        randomNumbers.push(getRandomNumber());
      }
      return randomNumbers;
@@ -126,7 +127,12 @@
    }
    // Event listener voor de knop om nummers te genereren
    document.getElementById('generateButton').addEventListener('click', () => {
-     let numbers = generateRandomNumbers();
+     let amount = parseInt(document.getElementById('amountNumbers').value);
+     if (isNaN(amount) || amount <= 0) {
+       alert('Voer een geldig aantal nummers in.');
+       return;
+     }
+     let numbers = generateRandomNumbers(amount);
      window.randomNumbers = numbers; // Sla de gegenereerde nummers op in de global scope
      displayRandomNumbers(numbers);
    });
