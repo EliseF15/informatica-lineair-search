@@ -55,7 +55,7 @@
 <div id="result"></div>
 <div id="searchResult"></div>
 <div id="searchSteps"></div>
-<a href="index.html" class="link-button">Main Page</a>
+<a href="index.html" class="link-button">terug naar de homepage</a>
 <script>
    // Functie om een willekeurig getal onder de 100 te genereren
    function getRandomNumber() {

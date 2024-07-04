@@ -64,7 +64,7 @@
 <button id="searchButton">Zoek Nummer</button>
 <div id="result"></div>
 <div id="searchResult"></div>
-<a href="index.html">Terug naar de main page</a>
+<a href="index.html">Terug naar de homepage</a>
  
   <script>
     // Functie om een willekeurig getal onder de 100 te genereren
